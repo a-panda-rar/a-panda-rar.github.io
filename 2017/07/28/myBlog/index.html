@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo,Next,Github pages," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="花了三个晚上搭建这个博客，第一篇就用来记录搭建过程。  准备工作 注册Github账号 创建一个名为username.github.io的repository git clone到本地，创建页面，push到远程 购买域名，ping username.github.io，拿到ip地址，在域名服务商那里解析ip 新建一个CNAME文件，不要后缀，记事本建立即可，输入我的域名www.yundoou.c">
+<meta name="keywords" content="Hexo,Next,Github pages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Github Pages+Next博客搭建">
+<meta property="og:url" content="http://www.yundoou.com/2017/07/28/myBlog/index.html">
+<meta property="og:site_name" content="对的事，天天做">
+<meta property="og:description" content="花了三个晚上搭建这个博客，第一篇就用来记录搭建过程。  准备工作 注册Github账号 创建一个名为username.github.io的repository git clone到本地，创建页面，push到远程 购买域名，ping username.github.io，拿到ip地址，在域名服务商那里解析ip 新建一个CNAME文件，不要后缀，记事本建立即可，输入我的域名www.yundoou.c">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-28T16:08:20.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo+Github Pages+Next博客搭建">
+<meta name="twitter:description" content="花了三个晚上搭建这个博客，第一篇就用来记录搭建过程。  准备工作 注册Github账号 创建一个名为username.github.io的repository git clone到本地，创建页面，push到远程 购买域名，ping username.github.io，拿到ip地址，在域名服务商那里解析ip 新建一个CNAME文件，不要后缀，记事本建立即可，输入我的域名www.yundoou.c">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yundoou.com/2017/07/28/myBlog/"/>
+
+
+
+
+
+  <title>Hexo+Github Pages+Next博客搭建 | 对的事，天天做</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f84f834bbd6e1f654df4eb2895259248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">对的事，天天做</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yundoou.com/2017/07/28/myBlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="对的事，天天做">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo+Github Pages+Next博客搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T19:58:05+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">博客搭建</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/28/myBlog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/28/myBlog/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>花了三个晚上搭建这个博客，第一篇就用来记录搭建过程。</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>注册Github账号</li>
+<li>创建一个名为username.github.io的repository</li>
+<li>git clone到本地，创建页面，push到远程</li>
+<li>购买域名，<code>ping username.github.io</code>，拿到ip地址，在域名服务商那里解析ip</li>
+<li>新建一个CNAME文件，不要后缀，记事本建立即可，输入我的域名www.yundoou.com</li>
+<li><code>git push</code></li>
+<li>稍等一会，刷新页面。成功。<a id="more"></a>
+<div class="note success"><p>步骤4和5选择一个即可，Github Pages推荐用步骤5。</p>
+</div>
+</li>
+</ol>
+<p>参考链接： </p>
+<ul>
+<li><a href="https://help.github.com/categories/github-pages-basics/" target="_blank" rel="external">Github help</a></li>
+<li><a href="http://blog.csdn.net/yuan3065/article/details/51594454" target="_blank" rel="external">绑定域名</a></li>
+</ul>
+<div class="note success"><p>这样建立的是一个空的静态网站仓库，每写一篇博客都要自己把内容嵌入HTML页面，还需要自己实现各种前端效果，这个适合研究前端的同学，我们只想专注于写作，把效果和框架交给别人管理，同时保留最大的控制权，这就是Hexo的根本目标。</p>
+</div>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><div class="note success"><p>Hexo是基于Node开发的，所以本地要先安装它，下载Windows 64 的msi文件，这个比zip好，因为msi文件安装的时候会把环境变量一起设置好了。 </p>
+</div>
+<p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js</a></p>
+<p><strong>安装成功的标志：</strong></p>
+<p>命令行输入 <code>node -v</code> 和<code>npm -v</code>都能得到各自版本信息。npm是随Node一起默认安装的。<br><div class="note success"><p>npm是node.js的包管工具，他们的关系就像Python和pip工具的关系。Hexo就相当于Node.js的一个特定的包。</p>
+</div></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>Hexo是node.js的 博客插件。<br>Windows环境下会被安装到这里：<br>C:\Users\Administrator\AppData\Roaming\npm\node_modules</p>
+<p>官网安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
+<p>但是，由于网速问题，安装常常失败，用淘宝的镜像就好了。<br><a href="https://npm.taobao.org/" target="_blank" rel="external">https://npm.taobao.org/</a><br><div class="note success"><p>意思是用npm安装cnpm，功能是一样的，但是是淘宝的镜像</p>
+</div><br>命令如下(注意第二行是cnmp)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line">cnpm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>-g是全局安装，这样在命令行直接就能调用hexo。</p>
+<p><strong>安装成功的标志：</strong><br><code>hexo -v</code><br>得到类似下面的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hexo-cli: 1.0.3</div><div class="line">os: Windows_NT 10.0.14393 win32 x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 8.2.1</div><div class="line">v8: 5.8.283.41</div><div class="line">uv: 1.13.1</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">modules: 57</div><div class="line">openssl: 1.0.2l</div><div class="line">icu: 59.1</div><div class="line">unicode: 9.0</div><div class="line">cldr: 31.0.1</div><div class="line">tz: 2017b</div></pre></td></tr></table></figure>
+<h2 id="重新安装Git工具"><a href="#重新安装Git工具" class="headerlink" title="重新安装Git工具"></a>重新安装Git工具</h2><p>Git是分不同平台的，在Windows下有Github Desktop和Git for Windows，前一个是Git GUI，鼠标点击操作，后一个是Git Bash，命令行工具。</p>
+<ul>
+<li>Github Desktop: <a href="https://desktop.github.com/" target="_blank" rel="external">https://desktop.github.com/</a><br>安装的时候提示用普通用户权限安装，而不是用管理员权限。<br>解决办法：<br>任务管理器关闭explorer.exe，新建一个explorer.exe，不勾选“以系统管理员权限创建此任务”，因为我前面是勾选的。</li>
+<li>Git for Windows: <a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a><br>这个安装完会装好Git Bash，这才像Linux风格，同时也会设置好Windows下的环境变量，然后git工具可以直接在Windows的命令行下运行.<br>安装过程中的所以选项全部默认，一直点一下一步即可。</li>
+</ul>
+<h2 id="建立博客"><a href="#建立博客" class="headerlink" title="建立博客"></a>建立博客</h2><p>首先建立自己的博客文件夹，比如我的域名是Yundoou，所以我再D盘根目录建立了Yundoou文件夹<br>进入D:\Yundoou，然后打开Git Bash。<br>运行如下命令(#后面是注释)：<br>下载hexo博客引擎到指定目录，也可以带上目录名，看自己需要，稍微有点慢，因为要下载，这个最好也是先开个VPN再运行，不然有时候非常慢。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init  <span class="comment">#</span></div><div class="line">cnpm <span class="keyword">install</span> <span class="comment">#安装依赖包，npm很慢，所以用上面淘宝的cnpm</span></div><div class="line">hexo s <span class="comment">#启动本地博客服务器，直接使用Hexo用于生成静态博客的源文件本地预览</span></div></pre></td></tr></table></figure></p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>先下载想要的主题，依旧是在Git Bash中运行，且要在自己本地网站目录下运行<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span>.git themes/<span class="keyword">next</span></div></pre></td></tr></table></figure></p>
+<p>修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为next。</p>
+<p>另外，下载主题也可以手动下载，只要是一份完整的主题包，不管从哪里下都可以，从github手动下载，从别人的博客链接下载都行。下载好了放到hexo的theme/目录下，一般一个主题包以自己的主题名字为一个文件夹。</p>
+<p><strong>几个常用Hexo命令：</strong><br><div class="note success"><p>$ hexo n == hexo new<br>$ hexo g == hexo generate<br>$ hexo s == hexo server # 命令启动之后，是直接使用主题包下的文件<br>$ hexo d == hexo deploy # 好像不太好用，可能会有一些bug，替代方案是Git直接push<br>$ hexo clean # 清空缓存，特别是更换了主题的时候，它会删除本地原来生成的public文件夹</p>
+</div></p>
+<h2 id="部署博客到Github-pages"><a href="#部署博客到Github-pages" class="headerlink" title="部署博客到Github pages"></a>部署博客到Github pages</h2><div class="note success"><p>有两种方式，第一种是直接使用hexo的deploy工具，前提是安装hexo-deployer-git这个工具，但是我安装的时候发现提示说这个工具已经不再维护了。帖子也说有时候会出现一些莫名其妙的问题，所以不推荐这种方法，直接使用原生的git命令部署。</p>
+</div>
+<p>首先把Github Pages克隆到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/a-panda-rar/a-panda-rar.github.io.git .deploy/a-panda-rar.github.io</div></pre></td></tr></table></figure></p>
+<p>注意要在网站目录下运行，克隆到本地.deploy文件夹。然后用一小段脚本把hexo发布的静态页面复制到这个文件夹里面，再push到github上。<br>注意，我把自己的CNAME文件放进了public文件夹内，每次生成页面不会被覆盖<br>脚本如下&lt;这一段是Linux下的脚本，不过好像Windows下的Power Shell的脚本刚好语法和命令都是一样的&gt;：<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">generate</span></div><div class="line">cp -R public<span class="comment">/* .deploy/a-panda-rar.github.io</span></div><div class="line">cd .deploy/a-panda-rar.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push</div></pre></td></tr></table></figure></p>
+<div class="note warning"><p>如果发现git命令无法运行，那就是git没有添加进环境变量。<br>执行git push出现”Everything up-to-date”<br>原因：<br>1）没有git add .<br>2）没有git commit -m “提交信息”<br>如果上面两个步骤都成功执行，还出现这个错误是因为创建的目录下是空的，目录下必须有文件才能git push上传成功。<br>在github上创建文件的时候，在新文件名后加/符号就是文件夹，但是这种方式只支持英文名目录，中文名目录不支持。</p>
+</div>
+<h2 id="博客配置"><a href="#博客配置" class="headerlink" title="博客配置"></a>博客配置</h2><p>这个分为两部分，第一部分是这个Blog的通用设置，比如标题，作者，主题等等，这些是独立于主题的，比如比如哪里存放图片和html文件，哪里存放生成的文件，启用语法高亮，每页文章分页数等等，对应的配置文件是Blog根目录下的_config.yml文件。<br>设置博客整体语言也在这里，就是博客里面的各个部分的文本，比如菜单，按钮，都是通过语言一次性设置的，而不是自己一个个去改的。<br>另一部分就是特定主题的配置，是对应主题下的_config.yml文件，这个可以对整个主题进行框架性配置，主要针对页面页面结构，也针对整体格式，比如菜单显示哪几个，菜单文本自定义，菜单图标，字体，第三方插件等等。</p>
+<h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><p>在主题下的<code>source/images/</code>下替换头像文件<code>avatar.gif</code>即可，注意图像长宽比1:1。</p>
+<h3 id="设置代码高亮主题（在theme配置文件下，不是博客配置文件）"><a href="#设置代码高亮主题（在theme配置文件下，不是博客配置文件）" class="headerlink" title="设置代码高亮主题（在theme配置文件下，不是博客配置文件）"></a>设置代码高亮主题（在theme配置文件下，不是博客配置文件）</h3><p>Next主题总共支持5种主题，默认主题是白色的normal。通过修改next主题下的<code>_config.yml</code>的<code>highlight</code>字段，来设置代码主题。<br>本站点使用的是night主题。即令highlight为night。<br>用的是Tomorrow-theme这个项目的代码配色</p>
+<h3 id="添加标签页"><a href="#添加标签页" class="headerlink" title="添加标签页"></a>添加标签页</h3><p>初始状态是没有这个页面的，在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示<code>page not found</code>。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new<span class="built_in"> page </span><span class="string">"tags"</span></div></pre></td></tr></table></figure></p>
+<p>当要为某一篇文章添加标签，只需在<code>myBlog/source/_post</code>目录下的具体文章的<code>tags</code>中添加标签即可，且不需要添加引号。<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> <span class="string">机器学习记录</span></div><div class="line"><span class="attr">tags:</span> <span class="string">[ML,机器学习]</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure></p>
+<h3 id="如何删除文章"><a href="#如何删除文章" class="headerlink" title="如何删除文章"></a>如何删除文章</h3><p>删除文章的过程很简单，先删除本地文件，然后通过生成和部署命令进而将远程仓库中的文件也一并删除。具体来说，以最开始默认形成的<code>helloworld.md</code>这篇文章为例。<br>首先进入到<code>source / _post</code>文件夹中，找到<code>helloworld.md</code>文件，在本地直接执行删除。然后依次执行<code>hexo g,hexo d,</code>再去主页查看你就会发现你的博客上面已经空空如也了，这就是如何删除文章的方法。</p>
+<h3 id="文章插入图片"><a href="#文章插入图片" class="headerlink" title="文章插入图片"></a>文章插入图片</h3><p>使用本地路径：在<code>hexo/source</code>目录下手动新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为<code>/img/</code>图片名称。<br>另外直接使用<code>![]()</code>图片标签使用网上的链接，毕竟Github Pages只有1G的空间。</p>
+<h3 id="添加友情链接"><a href="#添加友情链接" class="headerlink" title="添加友情链接"></a>添加友情链接</h3><p>在主题配置文件(Blog\themes\next_config.yml)中打开<code>links</code> 开关即可。<br>添加了友情链接之后，hexo s 本地部署的时候，就报出异常。<br>因为layout只能二选一，不然就会报错，同时设两个布局，你是不是傻。<br>同时，# Blog rolls是依据注释，不是配置代码，否则也会报错<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Blog rolls</span></div><div class="line"><span class="attr">links_title:</span> <span class="string">有朋自远方来</span></div><div class="line"><span class="attr">links_layout:</span> <span class="string">block</span></div><div class="line"><span class="comment">#links_layout: inline</span></div><div class="line"><span class="attr">links:</span></div><div class="line"><span class="attr">  Mahua:</span> <span class="attr">http://mahua.jser.me/</span></div></pre></td></tr></table></figure></p>
+<h3 id="添加社交链接"><a href="#添加社交链接" class="headerlink" title="添加社交链接"></a>添加社交链接</h3><p>开启<code>social</code>开关即可，对应的icon默认是开启的，但是在social没有开启的时候是不显示的。<br>如果没有设置icon，那么默认显示一个地球图标<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Social Links</span></div><div class="line"><span class="comment"># Key is the link label showing to end users.</span></div><div class="line"><span class="comment"># Value is the target link (E.g. GitHub: https://github.com/iissnan)</span></div><div class="line"><span class="attr">social:</span></div><div class="line">  <span class="comment"># LinkLabel: Link</span></div><div class="line"><span class="attr">  GitHub:</span> <span class="attr">https://github.com/a-panda-rar</span></div><div class="line"><span class="attr">  Kaggle:</span> <span class="attr">https://www.kaggle.com/yundoou</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="attr">social_icons:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line">  <span class="comment"># Icon Mappings.</span></div><div class="line">  <span class="comment"># KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome</span></div><div class="line"><span class="attr">  GitHub:</span> <span class="string">github</span></div><div class="line"><span class="attr">  Twitter:</span> <span class="string">twitter</span></div><div class="line"><span class="attr">  Weibo:</span> <span class="string">weibo</span></div><div class="line"><span class="attr">  Kaggle:</span> <span class="string">kaggle</span></div></pre></td></tr></table></figure></p>
+<h3 id="截断文章，阅读全文按钮"><a href="#截断文章，阅读全文按钮" class="headerlink" title="截断文章，阅读全文按钮"></a>截断文章，阅读全文按钮</h3><p>文章长了会显示很长，体验不太好，想要显示开头一部分和一个<code>阅读全文</code>按钮，方法超级优雅的有木有。<br>在你想隐藏的地方加上<code>&lt;!--more--&gt;</code>，一切搞定。</p>
+<h2 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h2><p>第三方服务相当于Hexo的插件，实现一些静态网页无法实现的功能和一些统计功能，比如评论功能和访问量，阅读量统计等等，还有一些个性化的设置，比如添加网易云音乐插件放点歌。</p>
+<h3 id="评论模块"><a href="#评论模块" class="headerlink" title="评论模块"></a>评论模块</h3><p>可选比较多，主要考虑便利性，可用性，可维护性，比如多说评论宣布倒闭，用了是不是比较烦，Facebook评论国内上不了，本想考虑网易云跟帖，结果去官网一看，公告说2017年8月份停止运营。算了，放弃评论模块，万一用着用着哪天就关了，留个邮箱，想联系我发邮件也是极好的。</p>
+<h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><p>注册加了一个，万一以后要研究运营呢？</p>
+<h3 id="访问量-阅读量统计"><a href="#访问量-阅读量统计" class="headerlink" title="访问量/阅读量统计"></a>访问量/阅读量统计</h3><p>综合对比了下，不蒜子计数比较靠谱，而且也不要账号什么的。就用它了。说已经关闭，不蒜子还活着，这是程序员对程序员的承诺。官网说的安装方法是2015年的，现在已经不用那么操作了，直接在Next中文官网上看，把False改成True即可。 LeanCloud也可以，先不研究了，能用就行。<br><a href="http://ibruce.info/" target="_blank" rel="external">不蒜子</a><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="attr">busuanzi_count:</span></div><div class="line">  <span class="comment"># count values only if the other configs are false</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line">  <span class="comment"># custom uv span for the whole site</span></div><div class="line"><span class="attr">  site_uv:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  site_uv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-user"&gt;&lt;/i&gt;</span></div><div class="line"><span class="attr">  site_uv_footer:</span></div><div class="line">  <span class="comment"># custom pv span for the whole site</span></div><div class="line"><span class="attr">  site_pv:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  site_pv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-eye"&gt;&lt;/i&gt;</span></div><div class="line"><span class="attr">  site_pv_footer:</span></div><div class="line">  <span class="comment"># custom pv span for one page only</span></div><div class="line"><span class="attr">  page_pv:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  page_pv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-file-o"&gt;&lt;/i&gt;</span></div><div class="line"><span class="attr">  page_pv_footer:</span></div></pre></td></tr></table></figure></p>
+<h3 id="最后来点个性化，网易云音乐"><a href="#最后来点个性化，网易云音乐" class="headerlink" title="最后来点个性化，网易云音乐"></a>最后来点个性化，网易云音乐</h3><p>首先网易云音乐做得不错，所以就选它了，其它也有一些，方法很简单，和Hexo本身没有什么关系了，进入网易云音乐，找到想要的歌曲，点击生成外链播放器，选择是否自动播放，然后得到一段<code>iframe</code>代码，把这段代码直接贴进博客的某个页面，想在哪个页面都行，贴的时候是往源文件的markdown文件里贴的。<br>感谢这一篇博客：<a href="http://www.jianshu.com/p/181baa28fcb0" target="_blank" rel="external">添加网易云音乐</a><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;iframe <span class="attribute">frameborder</span>=<span class="string">"no"</span> <span class="attribute">border</span>=<span class="string">"0"</span> <span class="attribute">marginwidth</span>=<span class="string">"0"</span> <span class="attribute">marginheight</span>=<span class="string">"0"</span> <span class="attribute">width</span>=330 <span class="attribute">height</span>=86 </div><div class="line"><span class="attribute">src</span>=<span class="string">"//music.163.com/outchain/player?type=3&amp;id=908277292&amp;auto=1&amp;height=66"</span>&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
+<p>上面的方法只能添加到文章里，就是Markdown文件里，那么我们直接想嵌入到博客框架内部呢？就是说让他成为博客框架的一部分么不是某一篇文章的一部分。<br>方法是这样的：<br>将外链插入到hexo/themes/next/layout中的文件中,我选择把播放器放在sidebar里面，所以我就选择了_macro文件夹中的<code>sidebar.swig</code>文件，将之前复制的iframe代码到了该文件中：<br>根据标签名称找到页面对应的位置，我准备把播放器放在友情链接下面，找到<code>Blogroll</code>，然后保存。<br>如果想直接放在首页，那么直接放在_layout.swig文件中去就行了。</p>
+<div class="note warning"><p>注意：修改swig文件要重新编译<code>hexo g</code>一遍，否则看不到效果。<br>另外修改各种配置文件要注意格式，不要搞错了，不如yml参数每个:后面都有一个空格，少了就报错。</p>
+</div>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="comment">&#123;# Blogroll #&#125;</span><span class="xml"></span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.links %&#125;</span><span class="xml"></span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll motion-element </span></span><span class="template-variable">&#123;&#123; "links-of-blogroll-" + theme.links_layout | default('inline') &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-title"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa  fa-fw fa-</span></span><span class="template-variable">&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">      <span class="template-variable">&#123;&#123; theme.links_title &#125;&#125;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-list"</span>&gt;</span></div><div class="line">      <span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> name, link <span class="keyword">in</span> theme.links %&#125;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-item"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"</span></span><span class="template-variable">&#123;&#123; link &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">title</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; name &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></span><span class="template-variable">&#123;&#123; name &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="template-tag">&#123;% <span class="name"><span class="name">endfor</span></span> %&#125;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></div><div class="line"><span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=3&amp;id=908277292&amp;auto=1&amp;height=66"</span>&gt;<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>之后测试发现了个小问题，进入其它文章页面后，播放器下面有一小部分显示不全，经过调试，发现把iframe中的第一个height稍微设置大一些可以解决，比如我设置成了120。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;iframe <span class="attribute">frameborder</span>=<span class="string">"no"</span> <span class="attribute">border</span>=<span class="string">"0"</span> <span class="attribute">marginwidth</span>=<span class="string">"0"</span> <span class="attribute">marginheight</span>=<span class="string">"0"</span> <span class="attribute">width</span>=330 <span class="attribute">height</span>=120 </div><div class="line"><span class="attribute">src</span>=<span class="string">"//music.163.com/outchain/player?type=3&amp;id=908277292&amp;auto=1&amp;height=66"</span>&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
+<p>感谢这一篇博客： <a href="http://weqeo.com/2016/10/11/Hexo%E4%B8%AD%E6%92%AD%E6%94%BE%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">嵌入音乐播放器</a></p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>搭建过程中遇到的大大小小的坑，参考了很多博客，无法逐一列举，大恩不言谢！</p>
+<p><a href="http://blog.csdn.net/zuoziji416/article/details/53204478" target="_blank" rel="external">主题配置</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next中文官网</a><br><a href="https://github.com/iissnan/hexo-theme-next/wiki" target="_blank" rel="external">Next wiki</a><br><a href="http://fanzhenyu.me/" target="_blank" rel="external">另一个Next主题博客</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/Next/" rel="tag"># Next</a>
+          
+            <a href="/tags/Github-pages/" rel="tag"># Github pages</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/26/first/" rel="next" title="机器学习记录">
+                <i class="fa fa-chevron-left"></i> 机器学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Ken" />
+          <p class="site-author-name" itemprop="name">Ken</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/a-panda-rar" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.kaggle.com/yundoou" target="_blank" title="Kaggle">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Kaggle
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              有朋自远方来
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mahua.jser.me/" title="Mahua" target="_blank">Mahua</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fanzhenyu.me/" title="Line" target="_blank">Line</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=120 src="//music.163.com/outchain/player?type=3&id=908277292&auto=1&height=66"></iframe>
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新安装Git工具"><span class="nav-number">4.</span> <span class="nav-text">重新安装Git工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立博客"><span class="nav-number">5.</span> <span class="nav-text">建立博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换主题"><span class="nav-number">6.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署博客到Github-pages"><span class="nav-number">7.</span> <span class="nav-text">部署博客到Github pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客配置"><span class="nav-number">8.</span> <span class="nav-text">博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#头像设置"><span class="nav-number">8.1.</span> <span class="nav-text">头像设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置代码高亮主题（在theme配置文件下，不是博客配置文件）"><span class="nav-number">8.2.</span> <span class="nav-text">设置代码高亮主题（在theme配置文件下，不是博客配置文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加标签页"><span class="nav-number">8.3.</span> <span class="nav-text">添加标签页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何删除文章"><span class="nav-number">8.4.</span> <span class="nav-text">如何删除文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章插入图片"><span class="nav-number">8.5.</span> <span class="nav-text">文章插入图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加友情链接"><span class="nav-number">8.6.</span> <span class="nav-text">添加友情链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加社交链接"><span class="nav-number">8.7.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截断文章，阅读全文按钮"><span class="nav-number">8.8.</span> <span class="nav-text">截断文章，阅读全文按钮</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务"><span class="nav-number">9.</span> <span class="nav-text">第三方服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#评论模块"><span class="nav-number">9.1.</span> <span class="nav-text">评论模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计"><span class="nav-number">9.2.</span> <span class="nav-text">百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问量-阅读量统计"><span class="nav-number">9.3.</span> <span class="nav-text">访问量/阅读量统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后来点个性化，网易云音乐"><span class="nav-number">9.4.</span> <span class="nav-text">最后来点个性化，网易云音乐</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">10.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ken</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.yundoou.com/2017/07/28/myBlog/';
+          this.page.identifier = '2017/07/28/myBlog/';
+          this.page.title = 'Hexo+Github Pages+Next博客搭建';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
